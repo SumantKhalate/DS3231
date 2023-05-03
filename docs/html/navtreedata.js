@@ -25,6 +25,7 @@
 var NAVTREE =
 [
   [ "DS3231", "index.html", [
+    [ "DS3231", "md__r_e_a_d_m_e.html", null ],
     [ "Data Structures", "annotated.html", [
       [ "Data Structures", "annotated.html", "annotated_dup" ],
       [ "Data Structure Index", "classes.html", null ],

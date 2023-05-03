@@ -1,11 +1,6 @@
-/*
- * DS3231.h
- *
- *  Created on: Mar 31, 2023
- *  Author: Sumant Khalate (www.github.com/SumantKhalate)
- *
- *  An STM32 HAL library written for DS3231 real-time clock IC.
- */
+/* An STM32 HAL library written for the DS3231 real-time clock IC. */
+/* Library by Sumant Khalate aka pi_filter | github.com/SumantKhalate */
+/* Date 03/05/2003 */
 
 #ifndef DS3231_H
 #define DS3231_H

@@ -14,61 +14,61 @@ extern "C" {
 #define SECONDS_FROM_1970_TO_2000 946684800
 
 /*---------------------------------------- HAL FUNCTION TIMEOUT TIME ----------------------------*/
-#define DS3231_TIMEOUT			HAL_MAX_DELAY
+#define DS3231_TIMEOUT          HAL_MAX_DELAY
 
 /*---------------------------------------- DEVICE ADDRESS ---------------------------------------*/
-#define DS3231_I2C_ADDR			(0x68 << 1)
+#define DS3231_I2C_ADDR         (0x68 << 1)
 
 /*------------------------------------ TIMEKEEPIGN REGISTERS ------------------------------------*/
-#define DS3231_REG_SECOND 		0x00
-#define DS3231_REG_MINUTE		0x01
-#define DS3231_REG_HOUR			0x02
-#define DS3231_REG_DAY			0x03
+#define DS3231_REG_SECOND       0x00
+#define DS3231_REG_MINUTE       0x01
+#define DS3231_REG_HOUR         0x02
+#define DS3231_REG_DAY          0x03
 
-#define DS3231_REG_DATE			0x04
-#define DS3231_REG_MONTH		0x05
-#define DS3231_REG_YEAR   		0x06
+#define DS3231_REG_DATE         0x04
+#define DS3231_REG_MONTH        0x05
+#define DS3231_REG_YEAR         0x06
 
-#define DS3231_REG_A1_SECOND	0x07
-#define DS3231_REG_A1_MINUTE	0x08
-#define DS3231_REG_A1_HOUR		0x09
-#define DS3231_REG_A1_DATE		0x0A
+#define DS3231_REG_A1_SECOND    0x07
+#define DS3231_REG_A1_MINUTE    0x08
+#define DS3231_REG_A1_HOUR      0x09
+#define DS3231_REG_A1_DATE      0x0A
 
-#define DS3231_REG_A2_MINUTE	0x0B
-#define DS3231_REG_A2_HOUR		0x0C
-#define DS3231_REG_A2_DATE		0x0D
+#define DS3231_REG_A2_MINUTE    0x0B
+#define DS3231_REG_A2_HOUR      0x0C
+#define DS3231_REG_A2_DATE      0x0D
 
-#define DS3231_REG_CONTROL 		0x0E
-#define DS3231_REG_STATUS		0x0F
+#define DS3231_REG_CONTROL      0x0E
+#define DS3231_REG_STATUS       0x0F
 
-#define DS3231_REG_AGING		0x10
+#define DS3231_REG_AGING        0x10
 
-#define DS3231_REG_TEMP_MSB		0x11
-#define DS3231_REG_TEMP_LSB		0x12
+#define DS3231_REG_TEMP_MSB     0x11
+#define DS3231_REG_TEMP_LSB     0x12
 
 /*------------------------------------ CENTURY REGISTERS BITS------------------------------------*/
-#define DS3231_CENTURY			7			/* Toggled when the years register overflows from 99 to 00 */
+#define DS3231_CENTURY          7           /* Toggled when the years register overflows from 99 to 00 */
 
 /*------------------------------------ CONTROL REGISTERS BITS------------------------------------*/
-#define DS3231_EOSC				7			/* Not Enable Oscillator, 0 equal ON */
-#define DS3231_BBSQW			6			/* Battery-Backed Square-Wave Enable */
-#define DS3231_CONV				5			/* Convert Temperature */
-#define DS3231_RS2				4			/* Square-wave rate select 2 */
-#define DS3231_RS1				3			/* Square-wave rate select 1 */
-#define DS3231_INTCN			2			/* Interrupt Control */
-#define DS3231_A2IE				1			/* Alarm 2 Interrupt Enable */
-#define DS3231_A1IE				0			/* Alarm 1 Interrupt Enable */
+#define DS3231_EOSC             7           /* Not Enable Oscillator, 0 equal ON */
+#define DS3231_BBSQW            6           /* Battery-Backed Square-Wave Enable */
+#define DS3231_CONV             5           /* Convert Temperature */
+#define DS3231_RS2              4           /* Square-wave rate select 2 */
+#define DS3231_RS1              3           /* Square-wave rate select 1 */
+#define DS3231_INTCN            2           /* Interrupt Control */
+#define DS3231_A2IE             1           /* Alarm 2 Interrupt Enable */
+#define DS3231_A1IE             0           /* Alarm 1 Interrupt Enable */
 
 /*------------------------------------ STATUS REGISTERS BITS-------------------------------------*/
-#define DS3231_A1F				0			/* Alarm 1 Flag */
-#define DS3231_A2F				1			/* Alarm 2 Flag */
-#define DS3231_BSY				2			/* Device is busy executing TCXO */
-#define DS3231_EN32KHZ			3			/* Enable 32KHz Output  */
-#define DS3231_OSF				7			/* Oscillator Stop Flag */
+#define DS3231_A1F              0           /* Alarm 1 Flag */
+#define DS3231_A2F              1           /* Alarm 2 Flag */
+#define DS3231_BSY              2           /* Device is busy executing TCXO */
+#define DS3231_EN32KHZ          3           /* Enable 32KHz Output  */
+#define DS3231_OSF              7           /* Oscillator Stop Flag */
 
 /*------------------------------------ ALARM MASK BITS-------------------------------------------*/
-#define DS3231_AXMY				7			/* Alarm register mask */
-#define DS3231_DYDT				6			/* Day Date Bit, 1 equal Day */
+#define DS3231_AXMY             7           /* Alarm register mask */
+#define DS3231_DYDT             6           /* Day Date Bit, 1 equal Day */
 
 /*------------------------------------ ENUM DEFINATIONS -----------------------------------------*/
 typedef enum DS3231_DoW {
@@ -190,7 +190,7 @@ HAL_StatusTypeDef DS3231_ReadRegister(uint8_t reg, uint8_t *data);
 HAL_StatusTypeDef DS3231_ReadRegisters(uint8_t reg, uint8_t *data, uint8_t len);
 
 #ifdef __cplusplus
-			}
+            }
 #endif
 
 #endif /* DS3231_H */

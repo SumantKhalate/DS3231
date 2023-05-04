@@ -9,8 +9,7 @@
 extern "C" {
 #endif
 
-static const uint8_t days_in_month[12] = { 31, 28, 31, 30, 31, 30, 31, 31, 30,
-        31, 30, 31 };
+static const uint8_t days_in_month[12] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 static const uint8_t dow[12] = { 0, 3, 2, 5, 0, 3, 5, 1, 4, 6, 2, 4 };
 
 static I2C_HandleTypeDef *DS3231_device;
@@ -28,8 +27,8 @@ static I2C_HandleTypeDef *DS3231_device;
  * @note Calling this function will change the interrupt pin function (INTCN) to alarm interrupt mode.
  */
 HAL_StatusTypeDef DS3231_Init(I2C_HandleTypeDef *i2cHandle) {
-    DS3231_device = i2cHandle;
     HAL_StatusTypeDef status;
+    DS3231_device = i2cHandle;
     status = DS3231_SetAlarm1IntEn(DS3231_DISABLED);
     if (status != HAL_OK)
         return status;
@@ -51,8 +50,8 @@ HAL_StatusTypeDef DS3231_Init(I2C_HandleTypeDef *i2cHandle) {
  * @return HAL_StatusTypeDef variable describing if it was successful or not.
  */
 HAL_StatusTypeDef DS3231_SetBatterySquareWave(DS3231_State enable) {
-    uint8_t control;
     HAL_StatusTypeDef status;
+    uint8_t control;
     status = DS3231_ReadRegister(DS3231_REG_CONTROL, &control);
     if (status != HAL_OK)
         return status;
@@ -66,8 +65,8 @@ HAL_StatusTypeDef DS3231_SetBatterySquareWave(DS3231_State enable) {
  * @return HAL_StatusTypeDef variable describing if it was successful or not.
  */
 HAL_StatusTypeDef DS3231_GetBatterySquareWave(DS3231_State *enable) {
-    uint8_t control;
     HAL_StatusTypeDef status;
+    uint8_t control;
     status = DS3231_ReadRegister(DS3231_REG_CONTROL, &control);
     if (status != HAL_OK)
         return status;
@@ -81,8 +80,8 @@ HAL_StatusTypeDef DS3231_GetBatterySquareWave(DS3231_State *enable) {
  * @return HAL_StatusTypeDef variable describing if it was successful or not.
  */
 HAL_StatusTypeDef DS3231_SetOscillator(DS3231_State enable) {
-    uint8_t control;
     HAL_StatusTypeDef status;
+    uint8_t control;
     status = DS3231_ReadRegister(DS3231_REG_CONTROL, &control);
     if (status != HAL_OK)
         return status;
@@ -96,8 +95,8 @@ HAL_StatusTypeDef DS3231_SetOscillator(DS3231_State enable) {
  * @return HAL_StatusTypeDef variable describing if it was successful or not.
  */
 HAL_StatusTypeDef DS3231_GetOscillatorStoppedFlag(DS3231_State *enable) {
-    uint8_t data;
     HAL_StatusTypeDef status;
+    uint8_t data;
     status = DS3231_ReadRegister(DS3231_REG_STATUS, &data);
     *enable = !(data >> DS3231_OSF) & 0x01;
     return status;
@@ -109,9 +108,8 @@ HAL_StatusTypeDef DS3231_GetOscillatorStoppedFlag(DS3231_State *enable) {
  * @return HAL_StatusTypeDef variable describing if it was successful or not.
  */
 HAL_StatusTypeDef DS3231_Set32kHzOutput(DS3231_State enable) {
-    uint8_t temp;
     HAL_StatusTypeDef status;
-
+    uint8_t temp;
     status = DS3231_ReadRegister(DS3231_REG_STATUS, &temp);
     if (status != HAL_OK)
         return status;
@@ -126,8 +124,8 @@ HAL_StatusTypeDef DS3231_Set32kHzOutput(DS3231_State enable) {
  * @return HAL_StatusTypeDef variable describing if it was successful or not.
  */
 HAL_StatusTypeDef DS3231_Get32kHzEnabled(DS3231_State *enable) {
-    uint8_t data;
     HAL_StatusTypeDef status;
+    uint8_t data;
     status = DS3231_ReadRegister(DS3231_REG_STATUS, &data);
     *enable = (data >> DS3231_EN32KHZ) & 0x01;
     return status;
@@ -139,8 +137,8 @@ HAL_StatusTypeDef DS3231_Get32kHzEnabled(DS3231_State *enable) {
  * @return HAL_StatusTypeDef variable describing if it was successful or not.
  */
 HAL_StatusTypeDef DS3231_SetInterruptMode(DS3231_InterruptMode mode) {
-    uint8_t control;
     HAL_StatusTypeDef status;
+    uint8_t control;
     status = DS3231_ReadRegister(DS3231_REG_CONTROL, &control);
     if (status != HAL_OK)
         return status;
@@ -154,8 +152,8 @@ HAL_StatusTypeDef DS3231_SetInterruptMode(DS3231_InterruptMode mode) {
  * @return HAL_StatusTypeDef variable describing if it was successful or not.
  */
 HAL_StatusTypeDef DS3231_GetInterruptMode(DS3231_InterruptMode *mode) {
-    uint8_t control;
     HAL_StatusTypeDef status;
+    uint8_t control;
     status = DS3231_ReadRegister(DS3231_REG_CONTROL, &control);
     if (status != HAL_OK)
         return status;
@@ -170,8 +168,8 @@ HAL_StatusTypeDef DS3231_GetInterruptMode(DS3231_InterruptMode *mode) {
  * @note Calling this function will change the interrupt pin function (INTCN) to square wave output mode.
  */
 HAL_StatusTypeDef DS3231_SetRateSelect(DS3231_Rate rate) {
-    uint8_t control;
     HAL_StatusTypeDef status;
+    uint8_t control;
     status = DS3231_ReadRegister(DS3231_REG_CONTROL, &control);
     if (status != HAL_OK)
         return status;
@@ -188,8 +186,8 @@ HAL_StatusTypeDef DS3231_SetRateSelect(DS3231_Rate rate) {
  * @return HAL_StatusTypeDef variable describing if it was successful or not.
  */
 HAL_StatusTypeDef DS3231_GetRateSelect(DS3231_Rate *rate) {
-    uint8_t control;
     HAL_StatusTypeDef status;
+    uint8_t control;
     status = DS3231_ReadRegister(DS3231_REG_CONTROL, &control);
     if (status != HAL_OK)
         return status;
@@ -205,13 +203,10 @@ HAL_StatusTypeDef DS3231_GetRateSelect(DS3231_Rate *rate) {
 HAL_StatusTypeDef DS3231_GetTemperature(float *temp_real) {
     HAL_StatusTypeDef status;
     uint8_t buffer[2];
-
     status = DS3231_ReadRegisters(DS3231_REG_TEMP_MSB, buffer, 2);
     if (status != HAL_OK)
         return status;
-
     *temp_real = (buffer[0] + (buffer[1] >> 6) * 0.25f);
-
     return status;
 }
 
@@ -226,17 +221,15 @@ HAL_StatusTypeDef DS3231_GetTemperature(float *temp_real) {
  */
 HAL_StatusTypeDef DS3231_SetAlarm1(D3231_Alarm1 *A1_st) {
     HAL_StatusTypeDef status;
-    uint8_t A1M1 = (A1_st->Mode & 0x01) << 7; // Seconds bit 7.
-    uint8_t A1M2 = (A1_st->Mode & 0x02) << 6; // Minutes bit 7.
-    uint8_t A1M3 = (A1_st->Mode & 0x04) << 5; // Hour bit 7.
-    uint8_t A1M4 = (A1_st->Mode & 0x08) << 4; // Day/Date bit 7.
-    uint8_t DY_DT = (A1_st->Mode & 0x10) << 2; // Day/Date bit 6. Date when 0, day of week when 1.
-
+    uint8_t A1M1 = (A1_st->Mode & 0x01) << 7;   // Seconds bit 7.
+    uint8_t A1M2 = (A1_st->Mode & 0x02) << 6;   // Minutes bit 7.
+    uint8_t A1M3 = (A1_st->Mode & 0x04) << 5;   // Hour bit 7.
+    uint8_t A1M4 = (A1_st->Mode & 0x08) << 4;   // Day/Date bit 7.
+    uint8_t DY_DT = (A1_st->Mode & 0x10) << 2;  // Day/Date bit 6. Date when 0, day of week when 1.
     uint8_t data[4] = { DS3231_EncodeBCD(A1_st->Seconds) | A1M1,
-            DS3231_EncodeBCD(A1_st->Minutes) | A1M2, DS3231_EncodeBCD(
-                    A1_st->Hours) | A1M3, DS3231_EncodeBCD(A1_st->DayDate)
-                    | DY_DT | A1M4, };
-
+                        DS3231_EncodeBCD(A1_st->Minutes) | A1M2,
+                        DS3231_EncodeBCD(A1_st->Hours) | A1M3,
+                        DS3231_EncodeBCD(A1_st->DayDate)| DY_DT | A1M4 };
     status = DS3231_WriteRegisters(DS3231_REG_A1_SECOND, data, 4);
     if (status != HAL_OK)
         return status;
@@ -258,24 +251,20 @@ HAL_StatusTypeDef DS3231_GetAlarm1(D3231_Alarm1 *A1_st) {
     status = DS3231_ReadRegisters(DS3231_REG_A1_SECOND, data, 4);
     if (status != HAL_OK)
         return status;
-
-    uint8_t Mode = (data[0] & 0x80) >> 7	// A1M1
-    | (data[1] & 0x80) >> 6	// A1M2
-    | (data[2] & 0x80) >> 5		// A1M3
-    | (data[3] & 0x80) >> 4		// A1M4
-    | (data[3] & 0x40) >> 2;	// DY_DT
+    uint8_t Mode = (data[0] & 0x80) >> 7    // A1M1
+                 | (data[1] & 0x80) >> 6    // A1M2
+                 | (data[2] & 0x80) >> 5    // A1M3
+                 | (data[3] & 0x80) >> 4    // A1M4
+                 | (data[3] & 0x40) >> 2;   // DY_DT
     A1_st->Mode = Mode;
-
     A1_st->Seconds = DS3231_DecodeBCD(data[0] & 0x7F);
     A1_st->Minutes = DS3231_DecodeBCD(data[1] & 0x7F);
     A1_st->Hours = DS3231_DecodeBCD(data[2] & 0x3F);
-
     uint8_t DayDate = (data[3] & 0x40) >> 6;
     if (DayDate)
         A1_st->DayDate = DS3231_DecodeBCD(data[3] & 0x0F);
     else
         A1_st->DayDate = DS3231_DecodeBCD(data[3] & 0x3F);
-
     return DS3231_GetAlarm1IntEn(&A1_st->IntEn);
 }
 
@@ -286,8 +275,8 @@ HAL_StatusTypeDef DS3231_GetAlarm1(D3231_Alarm1 *A1_st) {
  * @note Calling this function will change the interrupt pin function (INTCN) to alarm interrupt mode.
  */
 HAL_StatusTypeDef DS3231_SetAlarm1IntEn(DS3231_State enable) {
-    uint8_t control;
     HAL_StatusTypeDef status;
+    uint8_t control;
     status = DS3231_ReadRegister(DS3231_REG_CONTROL, &control);
     if (status != HAL_OK)
         return status;
@@ -304,8 +293,8 @@ HAL_StatusTypeDef DS3231_SetAlarm1IntEn(DS3231_State enable) {
  * @return HAL_StatusTypeDef variable describing if it was successful or not.
  */
 HAL_StatusTypeDef DS3231_GetAlarm1IntEn(DS3231_State *enable) {
-    uint8_t control;
     HAL_StatusTypeDef status;
+    uint8_t control;
     status = DS3231_ReadRegister(DS3231_REG_CONTROL, &control);
     if (status != HAL_OK)
         return status;
@@ -321,9 +310,8 @@ HAL_StatusTypeDef DS3231_GetAlarm1IntEn(DS3231_State *enable) {
  * the INT#/SQW pin will be asserted low until alarm flag is manually cleared using #DS3231_ClearAlarm1Flag function.
  */
 HAL_StatusTypeDef DS3231_GetAlarm1Flag(DS3231_State *enable) {
-    uint8_t data;
     HAL_StatusTypeDef status;
-
+    uint8_t data;
     status = DS3231_ReadRegister(DS3231_REG_STATUS, &data);
     *enable = (data >> DS3231_A1F) & 0x01;
     return status;
@@ -337,8 +325,8 @@ HAL_StatusTypeDef DS3231_GetAlarm1Flag(DS3231_State *enable) {
  * the INT#/SQW pin will be asserted low until alarm flag is manually cleared using #DS3231_ClearAlarm1Flag function.
  */
 HAL_StatusTypeDef DS3231_ClearAlarm1Flag(void) {
-    uint8_t control;
     HAL_StatusTypeDef status;
+    uint8_t control;
     status = DS3231_ReadRegister(DS3231_REG_STATUS, &control);
     if (status != HAL_OK)
         return status;
@@ -361,11 +349,9 @@ HAL_StatusTypeDef DS3231_SetAlarm2(D3231_Alarm2 *A2_st) {
     uint8_t A2M3 = (A2_st->Mode & 0x02) << 6; // Hour bit 7.
     uint8_t A2M4 = (A2_st->Mode & 0x04) << 5; // Day/Date bit 7.
     uint8_t DY_DT = (A2_st->Mode & 0x08) << 3; // Day/Date bit 6. Date when 0, day of week when 1.
-
     uint8_t data[3] = { DS3231_EncodeBCD(A2_st->Minutes) | A2M2,
-            DS3231_EncodeBCD(A2_st->Hours) | A2M3, DS3231_EncodeBCD(
-                    A2_st->DayDate) | DY_DT | A2M4, };
-
+                        DS3231_EncodeBCD(A2_st->Hours) | A2M3,
+                        DS3231_EncodeBCD(A2_st->DayDate) | DY_DT | A2M4 };
     status = DS3231_WriteRegisters(DS3231_REG_A2_MINUTE, data, 3);
     if (status != HAL_OK)
         return status;
@@ -388,22 +374,18 @@ HAL_StatusTypeDef DS3231_GetAlarm2(D3231_Alarm2 *A2_st) {
     if (status != HAL_OK)
         return status;
 
-    uint8_t Mode = (data[0] & 0x80) >> 7 	// A2M2
-    | (data[1] & 0x80) >> 6	// A2M3
-    | (data[2] & 0x80) >> 5		// A2M4
-    | (data[2] & 0x40) >> 3;	// DY_DT
-
+    uint8_t Mode = (data[0] & 0x80) >> 7    // A2M2
+                 | (data[1] & 0x80) >> 6    // A2M3
+                 | (data[2] & 0x80) >> 5    // A2M4
+                 | (data[2] & 0x40) >> 3;   // DY_DT
     A2_st->Mode = Mode;
-
     A2_st->Minutes = DS3231_DecodeBCD(data[0] & 0x7F);
     A2_st->Hours = DS3231_DecodeBCD(data[1] & 0x7F);
-
     uint8_t DayDate = (data[2] & 0x40) >> 6;
     if (DayDate)
         A2_st->DayDate = DS3231_DecodeBCD(data[2] & 0x0F);
     else
         A2_st->DayDate = DS3231_DecodeBCD(data[2] & 0x3F);
-
     return DS3231_GetAlarm2IntEn(&A2_st->IntEn);
 }
 
@@ -414,8 +396,8 @@ HAL_StatusTypeDef DS3231_GetAlarm2(D3231_Alarm2 *A2_st) {
  * @note Calling this function will change the interrupt pin function (INTCN) to alarm interrupt mode.
  */
 HAL_StatusTypeDef DS3231_SetAlarm2IntEn(DS3231_State enable) {
-    uint8_t control;
     HAL_StatusTypeDef status;
+    uint8_t control;
     status = DS3231_ReadRegister(DS3231_REG_CONTROL, &control);
     if (status != HAL_OK)
         return status;
@@ -432,8 +414,8 @@ HAL_StatusTypeDef DS3231_SetAlarm2IntEn(DS3231_State enable) {
  * @return HAL_StatusTypeDef variable describing if it was successful or not.
  */
 HAL_StatusTypeDef DS3231_GetAlarm2IntEn(DS3231_State *enable) {
-    uint8_t control;
     HAL_StatusTypeDef status;
+    uint8_t control;
     status = DS3231_ReadRegister(DS3231_REG_CONTROL, &control);
     if (status != HAL_OK)
         return status;
@@ -449,9 +431,8 @@ HAL_StatusTypeDef DS3231_GetAlarm2IntEn(DS3231_State *enable) {
  * the INT#/SQW pin will be asserted low until alarm flag is manually cleared using #DS3231_ClearAlarm2Flag function.
  */
 HAL_StatusTypeDef DS3231_GetAlarm2Flag(DS3231_State *enable) {
-    uint8_t data;
     HAL_StatusTypeDef status;
-
+    uint8_t data;
     status = DS3231_ReadRegister(DS3231_REG_STATUS, &data);
     *enable = (data >> DS3231_A2F) & 0x01;
     return status;
@@ -465,8 +446,8 @@ HAL_StatusTypeDef DS3231_GetAlarm2Flag(DS3231_State *enable) {
  * the INT#/SQW pin will be asserted low until alarm flag is manually cleared using #DS3231_ClearAlarm2Flag function.
  */
 HAL_StatusTypeDef DS3231_ClearAlarm2Flag(void) {
-    uint8_t control;
     HAL_StatusTypeDef status;
+    uint8_t control;
     status = DS3231_ReadRegister(DS3231_REG_STATUS, &control);
     if (status != HAL_OK)
         return status;
@@ -484,56 +465,45 @@ HAL_StatusTypeDef DS3231_ClearAlarm2Flag(void) {
 HAL_StatusTypeDef DS3231_SetDateTime(DS3231_DateTime *dt) {
     HAL_StatusTypeDef status;
     uint8_t buffer[7];
-
     if ((dt->Day >= 1) | (dt->Day <= 7))
         buffer[3] = DS3231_EncodeBCD(dt->Day);
     else
         return HAL_ERROR;
-
     if ((dt->Date >= 1) | (dt->Date <= 31))
         buffer[4] = DS3231_EncodeBCD(dt->Date);
     else
         return HAL_ERROR;
-
     if ((dt->Month >= 1) | (dt->Month <= 12))// Century bit implementation is pending
         buffer[5] = DS3231_EncodeBCD(dt->Month);
     else
         return HAL_ERROR;
-
     if ((dt->Year >= 0) | (dt->Year <= 99))
         buffer[6] = DS3231_EncodeBCD(dt->Year - 2000U);
     else
         return HAL_ERROR;
-
     if ((dt->Hour_24mode >= 0) | (dt->Hour_24mode <= 23))// Only 24HR mode is supported
         buffer[2] = DS3231_EncodeBCD(dt->Hour_24mode);
     else
         return HAL_ERROR;
-
     if ((dt->Minute >= 0) | (dt->Minute <= 59))
         buffer[1] = DS3231_EncodeBCD(dt->Minute);
     else
         return HAL_ERROR;
-
     if ((dt->Second >= 0) | (dt->Second <= 59))
         buffer[0] = DS3231_EncodeBCD(dt->Second);
     else
         return HAL_ERROR;
-
     status = DS3231_WriteRegisters(DS3231_REG_SECOND, buffer, 7);
     if (status != HAL_OK)
         return status;
-
     uint8_t regCONTROL;
     status = DS3231_ReadRegister(DS3231_REG_CONTROL, &regCONTROL);
     if (status != HAL_OK)
         return status;
-
     if (dt->Enable == DS3231_ENABLED)
         regCONTROL &= ~(0x80);
     else
         regCONTROL |= (0x80);
-
     return DS3231_WriteRegister(DS3231_REG_CONTROL, &regCONTROL);
 }
 
@@ -547,11 +517,9 @@ HAL_StatusTypeDef DS3231_SetDateTime(DS3231_DateTime *dt) {
 HAL_StatusTypeDef DS3231_GetDateTime(DS3231_DateTime *dt) {
     HAL_StatusTypeDef status;
     uint8_t buffer[7];
-
     status = DS3231_ReadRegisters(DS3231_REG_SECOND, buffer, 7);
     if (status != HAL_OK)
         return status;
-
     dt->Second = DS3231_DecodeBCD(buffer[0] & 0x7F);
     dt->Minute = DS3231_DecodeBCD(buffer[1] & 0x7F);
     dt->Hour_24mode = DS3231_DecodeBCD(buffer[2] & 0x3F);
@@ -559,16 +527,13 @@ HAL_StatusTypeDef DS3231_GetDateTime(DS3231_DateTime *dt) {
     dt->Date = DS3231_DecodeBCD(buffer[4] & 0x3F);
     dt->Month = DS3231_DecodeBCD(buffer[5] & 0x1F);
     dt->Year = DS3231_DecodeBCD(buffer[6]) + 2000U;
-
     uint8_t regSTATUS;
     status = DS3231_ReadRegister(DS3231_REG_STATUS, &regSTATUS);
     if (status != HAL_OK)
         return status;
     regSTATUS &= (0x80);
     regSTATUS >>= DS3231_EOSC;
-
     dt->Enable = regSTATUS ? DS3231_DISABLED : DS3231_ENABLED;
-
     return status;
 }
 
@@ -581,28 +546,22 @@ HAL_StatusTypeDef DS3231_GetDateTime(DS3231_DateTime *dt) {
 void DS3231_ToUnixTime(DS3231_DateTime *dt, uint32_t *unixtime) {
     uint16_t days, years;
     uint8_t months, hours, minutes, seconds;
-
     years = dt->Year;
     months = dt->Month;
     days = dt->Date;
     hours = dt->Hour_24mode;
     minutes = dt->Minute;
     seconds = dt->Second;
-
     if (years >= 2000)
         years -= 2000;
     else
         return;
-
     days -= 1;
     for (uint8_t i = 1; i < months; i++)
         days += days_in_month[i - 1];
-
     if (months > 2 && years % 4 == 0)
         days++;
-
     days += (365 * years + (years + 3) / 4);
-
     *unixtime = ((days * 24UL + hours) * 60 + minutes)
             * 60+ seconds + SECONDS_FROM_1970_TO_2000;
 }
@@ -614,15 +573,12 @@ void DS3231_ToUnixTime(DS3231_DateTime *dt, uint32_t *unixtime) {
  * @return void
  */
 void DS3231_ToDateTime(uint32_t *unixtime, DS3231_DateTime *dt) {
-
     int32_t currYear, daysTillNow, extraTime, extraDays;
     uint8_t index, day, date, month, flag = 0;
-
     // Calculate total days unix time T
     daysTillNow = (*unixtime / (24 * 60 * 60));
     extraTime = (*unixtime % (24 * 60 * 60));
     currYear = 1970;
-
     // Calculating current year
     while (1) {
         if (currYear % 400 == 0 || (currYear % 4 == 0 && currYear % 100 != 0)) {
@@ -638,20 +594,16 @@ void DS3231_ToDateTime(uint32_t *unixtime, DS3231_DateTime *dt) {
         }
         currYear += 1;
     }
-
     // Updating extradays because it
     // will give days till previous day
     // and we have include current day
     extraDays = daysTillNow + 1;
-
     if (currYear % 400 == 0 || (currYear % 4 == 0 && currYear % 100 != 0))
         flag = 1;
-
     // Calculating MONTH and DATE
     month = 0, index = 0;
     if (flag == 1) {
         while (1) {
-
             if (index == 1) {
                 if (extraDays - 29 < 0)
                     break;
@@ -676,7 +628,6 @@ void DS3231_ToDateTime(uint32_t *unixtime, DS3231_DateTime *dt) {
             index += 1;
         }
     }
-
     // Current Month
     if (extraDays > 0) {
         month += 1;
@@ -687,7 +638,6 @@ void DS3231_ToDateTime(uint32_t *unixtime, DS3231_DateTime *dt) {
         else
             date = days_in_month[month - 1];
     }
-
     // Calculating HH:MM:YYYY
     dt->Date = (uint8_t) date;
     dt->Month = (uint8_t) month;
@@ -695,13 +645,11 @@ void DS3231_ToDateTime(uint32_t *unixtime, DS3231_DateTime *dt) {
     dt->Hour_24mode = extraTime / 3600;
     dt->Minute = (extraTime % 3600) / 60;
     dt->Second = (extraTime % 3600) % 60;
-
     currYear -= month < 3;
     day = (currYear + currYear / 4 - currYear / 100 + currYear / 400
             + dow[month - 1] + date) % 7;
     if (day == 0)
         day = 7;
-
     dt->Day = day;
 }
 

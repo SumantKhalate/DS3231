@@ -20,7 +20,7 @@ extern "C" {
 #define DS3231_I2C_ADDR			(0x68 << 1)
 
 /*------------------------------------ TIMEKEEPIGN REGISTERS ------------------------------------*/
-#define DS3231_REG_SECOND		0x00
+#define DS3231_REG_SECOND 		0x00
 #define DS3231_REG_MINUTE		0x01
 #define DS3231_REG_HOUR			0x02
 #define DS3231_REG_DAY			0x03
@@ -70,82 +70,74 @@ extern "C" {
 #define DS3231_AXMY				7			/* Alarm register mask */
 #define DS3231_DYDT				6			/* Day Date Bit, 1 equal Day */
 
-
 /*------------------------------------ ENUM DEFINATIONS -----------------------------------------*/
 typedef enum DS3231_DoW {
-	DS3231_MON  = 0x01,
-	DS3231_TUE,
-	DS3231_WED,
-	DS3231_THU,
-	DS3231_FRI,
-	DS3231_SAT,
-	DS3231_SUN
+    DS3231_MON = 0x01,
+    DS3231_TUE,
+    DS3231_WED,
+    DS3231_THU,
+    DS3231_FRI,
+    DS3231_SAT,
+    DS3231_SUN
 } DS3231_DoW;
 
 typedef enum DS3231_Rate {
-	DS3231_RATE_1HZ,
-	DS3231_RATE_1024HZ,
-	DS3231_RATE_4096HZ,
-	DS3231_RATE_8192HZ
+    DS3231_RATE_1HZ, DS3231_RATE_1024HZ, DS3231_RATE_4096HZ, DS3231_RATE_8192HZ
 } DS3231_Rate;
 
 typedef enum DS3231_InterruptMode {
-	DS3231_SQUARE_WAVE_INTERRUPT,
-	DS3231_ALARM_INTERRUPT
+    DS3231_SQUARE_WAVE_INTERRUPT, DS3231_ALARM_INTERRUPT
 } DS3231_InterruptMode;
 
 typedef enum DS3231_State {
-	DS3231_DISABLED,
-	DS3231_ENABLED
+    DS3231_DISABLED, DS3231_ENABLED
 } DS3231_State;
 
 typedef enum D3231_Alarm1Mode {
-	DS3231_A1_EVERY_S = 0x0F,
-	DS3231_A1_MATCH_S = 0x0E,
-	DS3231_A1_MATCH_S_M = 0x0C,
-	DS3231_A1_MATCH_S_M_H = 0x08,
-	DS3231_A1_MATCH_S_M_H_DATE = 0x00,
-	DS3231_A1_MATCH_S_M_H_DAY = 0x10
+    DS3231_A1_EVERY_S = 0x0F,
+    DS3231_A1_MATCH_S = 0x0E,
+    DS3231_A1_MATCH_S_M = 0x0C,
+    DS3231_A1_MATCH_S_M_H = 0x08,
+    DS3231_A1_MATCH_S_M_H_DATE = 0x00,
+    DS3231_A1_MATCH_S_M_H_DAY = 0x10
 } DS3231_Alarm1Mode;
 
 typedef enum D3231_Alarm2Mode {
-	DS3231_A2_EVERY_M = 0x07,
-	DS3231_A2_MATCH_M = 0x06,
-	DS3231_A2_MATCH_M_H = 0x04,
-	DS3231_A2_MATCH_M_H_DATE = 0x00,
-	DS3231_A2_MATCH_M_H_DAY = 0x08
+    DS3231_A2_EVERY_M = 0x07,
+    DS3231_A2_MATCH_M = 0x06,
+    DS3231_A2_MATCH_M_H = 0x04,
+    DS3231_A2_MATCH_M_H_DATE = 0x00,
+    DS3231_A2_MATCH_M_H_DAY = 0x08
 } DS3231_Alarm2Mode;
-
 
 /*------------------------------------ STRUCTURE DEFINATIONS ------------------------------------*/
 typedef struct DS3231_DateTime {
-	uint8_t Day;
-	uint8_t Date;
-	uint8_t Month;
-	uint16_t Year;
-	uint8_t Hour_24mode;
-	uint8_t Minute;
-	uint8_t Second;
-	DS3231_State Enable;
+    uint8_t Day;
+    uint8_t Date;
+    uint8_t Month;
+    uint16_t Year;
+    uint8_t Hour_24mode;
+    uint8_t Minute;
+    uint8_t Second;
+    DS3231_State Enable;
 } DS3231_DateTime;
 
 typedef struct D3231_Alarm1 {
-	uint8_t Seconds;
-	uint8_t Minutes;
-	uint8_t Hours;
-	uint8_t DayDate;
-	DS3231_Alarm1Mode Mode;
-	DS3231_State IntEn;
+    uint8_t Seconds;
+    uint8_t Minutes;
+    uint8_t Hours;
+    uint8_t DayDate;
+    DS3231_Alarm1Mode Mode;
+    DS3231_State IntEn;
 } D3231_Alarm1;
 
 typedef struct D3231_Alarm2 {
-	uint8_t Minutes;
-	uint8_t Hours;
-	uint8_t DayDate;
-	DS3231_Alarm2Mode Mode;
-	DS3231_State IntEn;
+    uint8_t Minutes;
+    uint8_t Hours;
+    uint8_t DayDate;
+    DS3231_Alarm2Mode Mode;
+    DS3231_State IntEn;
 } D3231_Alarm2;
-
 
 /*------------------------------------ FUNCTION DEFINATIONS -------------------------------------*/
 extern I2C_HandleTypeDef *i2cHandle;

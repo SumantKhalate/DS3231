@@ -25,7 +25,11 @@
 var NAVTREE =
 [
   [ "DS3231", "index.html", [
-    [ "DS3231", "md__r_e_a_d_m_e.html", null ],
+    [ "DS3231", "md__r_e_a_d_m_e.html", [
+      [ "Documentation", "md__r_e_a_d_m_e.html#autotoc_md1", null ],
+      [ "Future todos:", "md__r_e_a_d_m_e.html#autotoc_md2", null ],
+      [ "Compatibility", "md__r_e_a_d_m_e.html#autotoc_md3", null ]
+    ] ],
     [ "Data Structures", "annotated.html", [
       [ "Data Structures", "annotated.html", "annotated_dup" ],
       [ "Data Structure Index", "classes.html", null ],

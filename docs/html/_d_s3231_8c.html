@@ -1155,7 +1155,7 @@ It only support 24H mode. </dd></dl>
 <p>Writes one byte of data to the designated DS3231 register. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*reg</td><td>Pointer to a register address to write. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">reg</td><td>Register address to write to. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">*data</td><td>Pointer to a date variable to write from. </td></tr>
   </table>
   </dd>
@@ -1201,9 +1201,9 @@ It only support 24H mode. </dd></dl>
 <p>Writes multiple byte of data to the consecutive DS3231 registers. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*reg</td><td>Pointer to a starting register address to write. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">reg</td><td>Register address to write to. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">*data</td><td>Pointer to a date buffer to write from. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">*len</td><td>Pointer to a variable containing the number of bytes to write. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">len</td><td>Number of bytes to write. </td></tr>
   </table>
   </dd>
 </dl>
@@ -1242,7 +1242,7 @@ It only support 24H mode. </dd></dl>
 <p>Reads one byte of data from the designated DS3231 register. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*reg</td><td>Pointer to a register address to read from. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">reg</td><td>Register address to read from. </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">*data</td><td>Pointer to a date variable to read to. </td></tr>
   </table>
   </dd>
@@ -1288,9 +1288,9 @@ It only support 24H mode. </dd></dl>
 <p>Reads multiple byte of data from consecutive DS3231 registers. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*reg</td><td>Pointer to a starting register address to read from. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">reg</td><td>Register address to read from. </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">*data</td><td>Pointer to a date buffer to read to. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">*len</td><td>Pointer to a variable containing the number of bytes to read. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">len</td><td>Number of bytes to read. </td></tr>
   </table>
   </dd>
 </dl>

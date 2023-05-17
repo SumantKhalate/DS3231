@@ -673,7 +673,7 @@ uint8_t DS3231_EncodeBCD(uint8_t dec) {
 
 /**
  * @brief Writes one byte of data to the designated DS3231 register.
- * @param[in] *reg Pointer to a register address to write.
+ * @param[in] reg Register address to write to.
  * @param[in] *data Pointer to a date variable to write from.
  * @return HAL_StatusTypeDef variable describing if it was successful or not.
  */
@@ -684,9 +684,9 @@ HAL_StatusTypeDef DS3231_WriteRegister(uint8_t reg, uint8_t *data) {
 
 /**
  * @brief Writes multiple byte of data to the consecutive DS3231 registers.
- * @param[in] *reg Pointer to a starting register address to write.
+ * @param[in] reg Register address to write to.
  * @param[in] *data Pointer to a date buffer to write from.
- * @param[in] *len Pointer to a variable containing the number of bytes to write.
+ * @param[in] len Number of bytes to write.
  * @return HAL_StatusTypeDef variable describing if it was successful or not.
  */
 HAL_StatusTypeDef DS3231_WriteRegisters(uint8_t reg, uint8_t *data, uint8_t len) {
@@ -696,7 +696,7 @@ HAL_StatusTypeDef DS3231_WriteRegisters(uint8_t reg, uint8_t *data, uint8_t len)
 
 /**
  * @brief Reads one byte of data from the designated DS3231 register.
- * @param[in] *reg Pointer to a register address to read from.
+ * @param[in] reg Register address to read from.
  * @param[out] *data Pointer to a date variable to read to.
  * @return HAL_StatusTypeDef variable describing if it was successful or not.
  */
@@ -707,9 +707,9 @@ HAL_StatusTypeDef DS3231_ReadRegister(uint8_t reg, uint8_t *data) {
 
 /**
  * @brief Reads multiple byte of data from consecutive DS3231 registers.
- * @param[in] *reg Pointer to a starting register address to read from.
+ * @param[in] reg Register address to read from.
  * @param[out] *data Pointer to a date buffer to read to.
- * @param[in] *len Pointer to a variable containing the number of bytes to read.
+ * @param[in] len Number of bytes to read.
  * @return HAL_StatusTypeDef variable describing if it was successful or not.
  */
 HAL_StatusTypeDef DS3231_ReadRegisters(uint8_t reg, uint8_t *data, uint8_t len) {

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.6"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>DS3231: DS3231</title>
+<title>DS3231: Search</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -54,48 +54,10 @@ $(function() {
 /* @license-end */
 </script>
 <div id="main-nav"></div>
-</div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(document).ready(function(){initNavTree('md__r_e_a_d_m_e.html',''); initResizable(); });
-/* @license-end */
-</script>
-<div id="doc-content">
-<div><div class="header">
-  <div class="headertitle"><div class="title">DS3231 </div></div>
-</div><!--header-->
-<div class="contents">
-<div class="textblock"><p>An STM32 HAL library written for the DS3231 real-time clock IC.</p>
-<p><em>Note: The current implementation only supports 24Hr clock.</em></p>
-<h1><a class="anchor" id="autotoc_md1"></a>
-Documentation</h1>
-<p><a href="https://sumantkhalate.github.io/DS3231/">Doxygen</a></p>
-<h1><a class="anchor" id="autotoc_md2"></a>
-Future todos:</h1>
-<ul>
-<li>Add examples.</li>
-<li>Interrupt callbacks for alarms.</li>
-</ul>
-<h1><a class="anchor" id="autotoc_md3"></a>
-Compatibility</h1>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">MCU   </th><th class="markdownTableHeadCenter">Tested Works   </th><th class="markdownTableHeadCenter">Doesn't Work   </th><th class="markdownTableHeadCenter">Not Tested   </th><th class="markdownTableHeadNone">Notes    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">STM32L0   </td><td class="markdownTableBodyCenter">X   </td><td class="markdownTableBodyCenter"></td><td class="markdownTableBodyCenter"></td><td class="markdownTableBodyNone"></td></tr>
-</table>
-</div></div><!-- contents -->
-</div><!-- PageDoc -->
+<?php
+require_once "search_functions.php";
+main();
+?>
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

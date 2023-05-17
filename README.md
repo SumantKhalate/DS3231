@@ -15,6 +15,7 @@ An STM32 HAL library written for the DS3231 real-time clock IC.
 
 ## Compatibility
 
-MCU                | Tested Works | Doesn't Work | Not Tested  | Notes
------------------- | :----------: | :----------: | :---------: | -----
-STM32L0            |       X      |              |             | 
+|        MCU        | Tested Works | Doesn't Work | Not Tested  | Notes |
+|------------------ | :----------: | :----------: | :---------: | ----- |
+|      STM32L0      |       X      |              |             |       |
+

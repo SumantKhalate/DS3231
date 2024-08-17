@@ -1,4 +1,4 @@
-/**
+evic/**
  *  @brief     An STM32 HAL library written for the DS3231 real-time clock IC.
  *  @author    Sumant Khalate www.github.com/SumantKhalate/DS3231
  *  @date      May 2023
